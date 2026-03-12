@@ -71,7 +71,7 @@ export const siteConfig = {
     },
     {
       name: "Pro",
-      price: "\u00A335",
+      price: "\u00A330",
       period: "/month",
       description: "For businesses that want stronger admin visibility and export-friendly workflows.",
       fit: "Best for businesses that want deeper visibility and cleaner reporting.",
