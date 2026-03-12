@@ -53,8 +53,7 @@ Editable business and marketing metadata lives in `src/config/site.ts`, includin
 
 ## Founder placeholders to confirm before launch
 
-- `support@elysiumbookings.com`
-- `privacy@elysiumbookings.com`
+- switch `josephoakes17@hotmail.com` to the final domain email inboxes when they are set up
 - business legal name
 - registered address
 - final public pricing confirmation

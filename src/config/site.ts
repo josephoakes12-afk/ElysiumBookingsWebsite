@@ -10,7 +10,7 @@ export const siteConfig = {
   ctas: {
     primary: {
       label: "Contact Elysium",
-      href: "mailto:support@elysiumbookings.com"
+      href: "mailto:josephoakes17@hotmail.com"
     },
     secondary: {
       label: "View features",
@@ -43,13 +43,13 @@ export const siteConfig = {
   focusSegments: ["Permanent jewellery", "Nails", "Lashes and brows", "Hair"],
   socialLinks: [],
   contact: {
-    supportEmail: "support@elysiumbookings.com",
-    privacyEmail: "privacy@elysiumbookings.com"
+    supportEmail: "josephoakes17@hotmail.com",
+    privacyEmail: "josephoakes17@hotmail.com"
   },
   legal: {
     businessLegalName: "[Founder to confirm legal entity name]",
     registeredAddress: "[Founder to add registered address]",
-    privacyContact: "privacy@elysiumbookings.com",
+    privacyContact: "josephoakes17@hotmail.com",
     effectiveDate: "12 March 2026"
   },
   pricing: [
@@ -249,4 +249,3 @@ export function absoluteUrl(path = "/") {
 export function pageTitle(title?: string) {
   return title ? `${title} | ${siteConfig.name}` : siteConfig.name;
 }
-
