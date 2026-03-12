@@ -4,16 +4,20 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { siteConfig } from "../config/site";
 ---
 
-<BaseLayout pathname="/terms" title="Terms of Service" description="Terms of Service for Elysium Bookings.">
+<BaseLayout
+  pathname="/terms"
+  title="Terms of Service"
+  description="Review the terms for using Elysium Bookings, including access, billing, acceptable use, availability, and liability."
+>
   <PageHero
     eyebrow="Terms of Service"
-    title="Practical terms for an early-stage product."
+    title="Clear terms for using Elysium Bookings."
     summary="Straightforward terms covering access to the service, acceptable use, pricing, and liability."
   />
 
   <section class="container mt-12 space-y-6">
     <article class="legal-card">
-      <p><strong>Effective date:</strong> {siteConfig.legal.effectiveDate}</p>
+      <p><strong>Last updated:</strong> {siteConfig.legal.effectiveDate}</p>
       <p><strong>Service provider:</strong> Elysium Bookings</p>
       <p><strong>Contact:</strong> {siteConfig.contact.supportEmail}</p>
     </article>

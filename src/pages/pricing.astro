@@ -5,7 +5,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { siteConfig } from "../config/site";
 ---
 
-<BaseLayout pathname="/pricing" title="Pricing" description="Simple monthly pricing for Elysium Bookings.">
+<BaseLayout
+  pathname="/pricing"
+  title="Pricing"
+  description="View the current Elysium Bookings pricing structure and join the waitlist for launch updates and availability."
+>
   <PageHero
     eyebrow="Pricing"
     title="A simple monthly structure designed to stay approachable."
@@ -14,6 +18,45 @@ import { siteConfig } from "../config/site";
 
   <section class="container mt-12 grid gap-6 lg:grid-cols-3">
     {siteConfig.pricing.map((tier) => <PricingCard {...tier} />)}
+  </section>
+
+  <section class="container mt-16">
+    <div class="form-card">
+      <p class="eyebrow">Join the waitlist</p>
+      <h2 class="section-title mt-3">Register interest for early access updates.</h2>
+      <p class="section-summary">
+        Leave your details and Elysium Bookings will be in touch when new spaces, releases, or onboarding updates are available.
+      </p>
+
+      <form
+        class="mt-8"
+        action="https://formspree.io/f/xgonykeb"
+        method="POST"
+        data-waitlist-form
+      >
+        <div class="form-grid">
+          <label class="field-group">
+            <span class="field-label">Full name</span>
+            <input class="field-input" type="text" name="fullName" autocomplete="name" required />
+          </label>
+          <label class="field-group">
+            <span class="field-label">Email address</span>
+            <input class="field-input" type="email" name="email" autocomplete="email" required />
+          </label>
+          <label class="field-group">
+            <span class="field-label">Business name</span>
+            <input class="field-input" type="text" name="businessName" autocomplete="organization" required />
+          </label>
+        </div>
+        <div class="mt-6 flex flex-wrap items-center gap-4">
+          <button class="button button--primary" type="submit" data-waitlist-submit>Join the Waitlist</button>
+          <p class="text-sm leading-6 text-slate-500">No spam, no clutter, just product updates and availability news.</p>
+        </div>
+        <p class="waitlist-status" data-waitlist-success hidden>
+          Thank you for joining the waitlist. Your details have been received.
+        </p>
+      </form>
+    </div>
   </section>
 
   <section class="container mt-16">
@@ -35,4 +78,46 @@ import { siteConfig } from "../config/site";
       </div>
     </div>
   </section>
+
+  <script is:inline>
+    const waitlistForm = document.querySelector("[data-waitlist-form]");
+    const waitlistSuccess = document.querySelector("[data-waitlist-success]");
+    const waitlistSubmit = document.querySelector("[data-waitlist-submit]");
+
+    if (
+      waitlistForm instanceof HTMLFormElement &&
+      waitlistSuccess instanceof HTMLElement &&
+      waitlistSubmit instanceof HTMLButtonElement
+    ) {
+      waitlistForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        waitlistSubmit.disabled = true;
+        waitlistSubmit.textContent = "Submitting...";
+
+        try {
+          const response = await fetch(waitlistForm.action, {
+            method: "POST",
+            body: new FormData(waitlistForm),
+            headers: {
+              Accept: "application/json"
+            }
+          });
+
+          if (!response.ok) {
+            throw new Error("Request failed");
+          }
+
+          waitlistForm.reset();
+          waitlistSuccess.textContent = "Thank you for joining the waitlist. Your details have been received.";
+          waitlistSuccess.hidden = false;
+        } catch {
+          waitlistSuccess.textContent = "Thanks for your interest. Please try again in a moment if the form did not submit.";
+          waitlistSuccess.hidden = false;
+        } finally {
+          waitlistSubmit.disabled = false;
+          waitlistSubmit.textContent = "Join the Waitlist";
+        }
+      });
+    }
+  </script>
 </BaseLayout>

@@ -1,22 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Elysium Bookings Open Graph image">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#F8F7F2"/>
-      <stop offset="100%" stop-color="#ECE8DF"/>
+      <stop offset="0%" stop-color="#223A58"/>
+      <stop offset="100%" stop-color="#162235"/>
     </linearGradient>
-    <radialGradient id="glow" cx="80%" cy="15%" r="45%">
-      <stop offset="0%" stop-color="#C1A56E" stop-opacity="0.35"/>
+    <radialGradient id="glowGold" cx="18%" cy="22%" r="56%">
+      <stop offset="0%" stop-color="#C1A56E" stop-opacity="0.45"/>
       <stop offset="100%" stop-color="#C1A56E" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowBlue" cx="92%" cy="12%" r="42%">
+      <stop offset="0%" stop-color="#587CBB" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="#587CBB" stop-opacity="0"/>
     </radialGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect width="1200" height="630" fill="url(#glow)"/>
-  <rect x="72" y="64" width="1056" height="502" rx="42" fill="#FFFFFF" fill-opacity="0.78"/>
-  <rect x="112" y="118" width="96" height="96" rx="28" fill="#223A58"/>
-  <path d="M145 145h40v10h-28v18h23v10h-23v28h30v10h-42z" fill="#F5F4EF"/>
-  <circle cx="192" cy="143" r="10" fill="#C1A56E"/>
-  <text x="112" y="298" fill="#223A58" font-family="Georgia, serif" font-size="64">Elysium Bookings</text>
-  <text x="112" y="360" fill="#223A58" font-family="Arial, sans-serif" font-size="34">Booking and admin that fit UK beauty businesses better.</text>
-  <text x="112" y="426" fill="#4B5563" font-family="Arial, sans-serif" font-size="28">Mobile-first booking, practical admin, financial clarity, and Google Sheets export.</text>
+  <rect width="1200" height="630" fill="url(#glowGold)"/>
+  <rect width="1200" height="630" fill="url(#glowBlue)"/>
+  <rect x="78" y="72" width="1044" height="486" rx="38" fill="none" stroke="rgba(245,244,239,0.18)"/>
+  <text x="110" y="186" fill="#C1A56E" font-family="'Manrope', Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="7">ELYSIUM BOOKINGS</text>
+  <text x="110" y="300" fill="#F5F4EF" font-family="'Playfair Display', Georgia, serif" font-size="84">Beauty, booked better.</text>
+  <text x="110" y="388" fill="#E6E6E0" font-family="'Manrope', Arial, sans-serif" font-size="34">Booking and admin that fit UK beauty and wellness businesses better.</text>
+  <text x="110" y="454" fill="#C8D2E4" font-family="'Manrope', Arial, sans-serif" font-size="27">Mobile-first booking, practical admin, aftercare support, financial clarity, and Google Sheets export.</text>
+  <circle cx="1028" cy="140" r="54" fill="rgba(193,165,110,0.16)"/>
+  <circle cx="1028" cy="140" r="18" fill="#C1A56E"/>
 </svg>
-

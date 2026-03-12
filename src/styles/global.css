@@ -305,3 +305,73 @@ a {
 .link-inline {
   @apply text-brand-navy underline decoration-brand-gold/60 underline-offset-4;
 }
+
+.form-card {
+  @apply rounded-[2rem] border border-white/70 bg-white/75 p-7 shadow-panel sm:p-10;
+  backdrop-filter: blur(18px);
+}
+
+.form-grid {
+  @apply grid gap-5 md:grid-cols-3;
+}
+
+.field-group {
+  @apply flex flex-col gap-2;
+}
+
+.field-label {
+  @apply text-sm font-semibold text-brand-navy;
+}
+
+.field-input {
+  @apply min-h-[3.25rem] rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 shadow-soft transition;
+}
+
+.field-input:focus {
+  border-color: rgba(193, 165, 110, 0.7);
+  box-shadow: 0 0 0 4px rgba(193, 165, 110, 0.14);
+  outline: none;
+}
+
+.waitlist-status {
+  @apply mt-4 rounded-2xl border border-brand-gold/25 bg-brand-gold/10 px-4 py-3 text-sm text-brand-bronze;
+}
+
+.cookie-banner {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  border: 1px solid rgba(34, 58, 88, 0.1);
+  border-radius: 1.5rem;
+  padding: 1rem 1.1rem;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 18px 48px rgba(34, 58, 88, 0.14);
+  backdrop-filter: blur(18px);
+}
+
+.cookie-banner__text {
+  @apply m-0 text-sm leading-6 text-slate-600;
+}
+
+.cookie-banner__button {
+  @apply justify-center self-start;
+}
+
+@media (min-width: 768px) {
+  .cookie-banner {
+    left: auto;
+    max-width: 32rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .cookie-banner__button {
+    @apply self-auto;
+  }
+}

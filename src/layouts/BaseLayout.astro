@@ -34,7 +34,6 @@ const organizationSchema = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{metadataTitle}</title>
     <meta name="description" content={description} />
-    <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#223A58" />
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -59,6 +58,44 @@ const organizationSchema = {
         <slot />
       </main>
       <SiteFooter />
+      <div class="cookie-banner" data-cookie-banner hidden>
+        <p class="cookie-banner__text">
+          This site uses essential cookies to keep the website working smoothly. Read the
+          <a class="link-inline" href="/privacy">Privacy Policy</a>.
+        </p>
+        <button class="button button--secondary cookie-banner__button" type="button" data-cookie-dismiss>
+          Dismiss
+        </button>
+      </div>
     </div>
+    <script is:inline>
+      const cookieBannerKey = "elysium-cookie-banner-dismissed";
+      const cookieBanner = document.querySelector("[data-cookie-banner]");
+      const cookieDismiss = document.querySelector("[data-cookie-dismiss]");
+
+      if (cookieBanner instanceof HTMLElement) {
+        let dismissed = false;
+
+        try {
+          dismissed = localStorage.getItem(cookieBannerKey) === "true";
+        } catch {
+          dismissed = false;
+        }
+
+        cookieBanner.hidden = dismissed;
+
+        if (cookieDismiss instanceof HTMLButtonElement) {
+          cookieDismiss.addEventListener("click", () => {
+            cookieBanner.hidden = true;
+
+            try {
+              localStorage.setItem(cookieBannerKey, "true");
+            } catch {
+              // Ignore storage failures and just hide the banner for this visit.
+            }
+          });
+        }
+      }
+    </script>
   </body>
 </html>

@@ -4,7 +4,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { siteConfig } from "../config/site";
 ---
 
-<BaseLayout pathname="/contact" title="Contact" description="Contact Elysium Bookings.">
+<BaseLayout
+  pathname="/contact"
+  title="Contact"
+  description="Contact Elysium Bookings for support, privacy requests, verification checks, or general product enquiries."
+>
   <PageHero
     eyebrow="Contact"
     title="Need help, verification details, or a product conversation?"
@@ -18,6 +22,9 @@ import { siteConfig } from "../config/site";
       <p class="mt-4 text-base leading-8 text-slate-600">
         For support, verification checks, or general enquiries, email <a class="link-inline" href={`mailto:${siteConfig.contact.supportEmail}`}>{siteConfig.contact.supportEmail}</a>.
       </p>
+      <p class="mt-4 text-base leading-8 text-slate-600">
+        Support email: <a class="link-inline" href="mailto:support@elysiumbookings.com">support@elysiumbookings.com</a>
+      </p>
       <a class="button button--primary mt-6" href={`mailto:${siteConfig.contact.supportEmail}`}>Email support</a>
     </article>
 
@@ -27,8 +34,12 @@ import { siteConfig } from "../config/site";
       <p class="mt-4 text-base leading-8 text-slate-600">
         Privacy-related requests can be sent to <a class="link-inline" href={`mailto:${siteConfig.contact.privacyEmail}`}>{siteConfig.contact.privacyEmail}</a>.
       </p>
+      <p class="mt-4 text-base leading-8 text-slate-600">
+        Privacy email: <a class="link-inline" href="mailto:privacy@elysiumbookings.com">privacy@elysiumbookings.com</a>
+      </p>
       <div class="mt-6 rounded-[1.5rem] bg-slate-50 p-5 text-sm leading-7 text-slate-600">
-        Registered details placeholder: {siteConfig.legal.businessLegalName}, {siteConfig.legal.registeredAddress}
+        Elysium Bookings<br />
+        44 Stokesay Drive, Cheadle, Staffordshire, ST10 1YU, United Kingdom
       </div>
     </article>
   </section>

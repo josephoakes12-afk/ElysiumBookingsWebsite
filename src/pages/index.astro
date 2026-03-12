@@ -6,13 +6,20 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { siteConfig } from "../config/site";
 ---
 
-<BaseLayout pathname="/" title="Booking software for UK beauty businesses">
+<BaseLayout
+  pathname="/"
+  title="Booking Software for UK Beauty and Wellness Businesses"
+  description="Elysium Bookings is a mobile-first booking platform for beauty and wellness businesses in the UK, with practical admin tools, aftercare support, and clearer sole-trader reporting."
+>
   <section class="container pt-10 sm:pt-14">
     <div class="hero-panel grid gap-10 lg:grid-cols-[1.25fr_0.75fr] lg:items-end">
       <div>
         <p class="eyebrow">Mobile-first beauty booking software</p>
         <h1 class="page-title">{siteConfig.homepage.heroTitle}</h1>
         <p class="page-summary">{siteConfig.homepage.heroSummary}</p>
+        <p class="mt-4 max-w-2xl text-sm leading-7 text-slate-600">
+          Built for beauty and wellness businesses across the UK, with a particularly strong fit for solo and micro operators.
+        </p>
         <div class="mt-8 flex flex-wrap gap-3">
           <a class="button button--primary" href={siteConfig.ctas.primary.href}>{siteConfig.ctas.primary.label}</a>
           <a class="button button--secondary" href={siteConfig.ctas.secondary.href}>{siteConfig.ctas.secondary.label}</a>

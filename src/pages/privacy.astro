@@ -4,7 +4,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { siteConfig } from "../config/site";
 ---
 
-<BaseLayout pathname="/privacy" title="Privacy Policy" description="Privacy Policy for Elysium Bookings.">
+<BaseLayout
+  pathname="/privacy"
+  title="Privacy Policy"
+  description="Read how Elysium Bookings handles website, booking, account, support, Google integration, and payment-related data."
+>
   <PageHero
     eyebrow="Privacy Policy"
     title="Privacy information in plain English."
@@ -13,7 +17,7 @@ import { siteConfig } from "../config/site";
 
   <section class="container mt-12 space-y-6">
     <article class="legal-card">
-      <p><strong>Effective date:</strong> {siteConfig.legal.effectiveDate}</p>
+      <p><strong>Last updated:</strong> {siteConfig.legal.effectiveDate}</p>
       <p><strong>Business / operator:</strong> Elysium Bookings</p>
       <p><strong>Registered address:</strong> 44 Stokesay Drive, Cheadle, Staffordshire, ST10 1YU, United Kingdom</p>
       <p><strong>Privacy contact:</strong> {siteConfig.legal.privacyContact}</p>

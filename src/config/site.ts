@@ -10,7 +10,7 @@ export const siteConfig = {
   ctas: {
     primary: {
       label: "Contact Elysium",
-      href: "mailto:josephoakes17@hotmail.com"
+      href: "mailto:support@elysiumbookings.com"
     },
     secondary: {
       label: "View features",
@@ -43,19 +43,19 @@ export const siteConfig = {
   focusSegments: ["Permanent jewellery", "Nails", "Lashes and brows", "Hair"],
   socialLinks: [],
   contact: {
-    supportEmail: "josephoakes17@hotmail.com",
-    privacyEmail: "josephoakes17@hotmail.com"
+    supportEmail: "support@elysiumbookings.com",
+    privacyEmail: "privacy@elysiumbookings.com"
   },
   legal: {
-    businessLegalName: "[Founder to confirm legal entity name]",
-    registeredAddress: "[Founder to add registered address]",
-    privacyContact: "josephoakes17@hotmail.com",
-    effectiveDate: "12 March 2026"
+    businessLegalName: "Elysium Bookings",
+    registeredAddress: "44 Stokesay Drive, Cheadle, Staffordshire, ST10 1YU, United Kingdom",
+    privacyContact: "privacy@elysiumbookings.com",
+    effectiveDate: "June 2025"
   },
   pricing: [
     {
       name: "Free",
-      price: "£0",
+      price: "\u00A30",
       period: "/month",
       description: "A simple starting point for exploring a leaner beauty booking setup.",
       fit: "Best for early setup and getting familiar with the product direction.",
@@ -63,7 +63,7 @@ export const siteConfig = {
     },
     {
       name: "Starter",
-      price: "£19",
+      price: "\u00A319",
       period: "/month",
       description: "A practical everyday plan for solo beauty businesses that want clearer bookings and admin.",
       fit: "Best for independent businesses running appointments day to day.",
@@ -71,7 +71,7 @@ export const siteConfig = {
     },
     {
       name: "Pro",
-      price: "£35",
+      price: "\u00A335",
       period: "/month",
       description: "For businesses that want stronger admin visibility and export-friendly workflows.",
       fit: "Best for businesses that want deeper visibility and cleaner reporting.",
@@ -121,16 +121,6 @@ export const siteConfig = {
       {
         title: "Stripe-connected card hold protection",
         description: "No-show protection is being handled carefully and is shown publicly as a roadmap item rather than a confirmed live feature."
-      }
-    ],
-    omitted: [
-      {
-        title: "Internal analytics and API tooling",
-        description: "Private or operator-only tooling is intentionally left off the public site."
-      },
-      {
-        title: "Hidden operational surfaces",
-        description: "Internal-only or not-yet-public flows are not marketed as customer-facing features."
       }
     ]
   },
@@ -247,5 +237,5 @@ export function absoluteUrl(path = "/") {
 }
 
 export function pageTitle(title?: string) {
-  return title ? `${title} | ${siteConfig.name}` : siteConfig.name;
+  return title ? `${title} — ${siteConfig.name}` : siteConfig.name;
 }
