@@ -1,0 +1,77 @@
+---
+import PageHero from "../components/PageHero.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteConfig } from "../config/site";
+---
+
+<BaseLayout pathname="/privacy" title="Privacy Policy" description="Privacy Policy for Elysium Bookings.">
+  <PageHero
+    eyebrow="Privacy Policy"
+    title="Privacy information in plain English."
+    summary="How Elysium handles website, booking, account, and support information."
+  />
+
+  <section class="container mt-12 space-y-6">
+    <article class="legal-card">
+      <p><strong>Effective date:</strong> {siteConfig.legal.effectiveDate}</p>
+      <p><strong>Business / operator:</strong> {siteConfig.legal.businessLegalName}</p>
+      <p><strong>Registered address:</strong> {siteConfig.legal.registeredAddress}</p>
+      <p><strong>Privacy contact:</strong> {siteConfig.legal.privacyContact}</p>
+    </article>
+
+    <article class="legal-card">
+      <h2 class="text-xl font-semibold text-brand-navy">1. What this policy covers</h2>
+      <p class="mt-4">This policy explains how Elysium Bookings handles personal information when someone uses the public website, creates or manages bookings, uses an Elysium-powered account, or contacts us for support.</p>
+    </article>
+
+    <article class="legal-card">
+      <h2 class="text-xl font-semibold text-brand-navy">2. Information we may collect</h2>
+      <ul class="mt-4 space-y-2">
+        <li>Website usage details such as pages viewed, device type, browser details, and basic technical logs needed to keep the site working.</li>
+        <li>Account and booking information such as names, email addresses, phone numbers, appointment details, business settings, and booking notes.</li>
+        <li>Client-management data entered by a business using Elysium, including service history, preferences, or aftercare notes where relevant.</li>
+        <li>Support or contact messages sent to us by email.</li>
+      </ul>
+    </article>
+
+    <article class="legal-card">
+      <h2 class="text-xl font-semibold text-brand-navy">3. How we use the information</h2>
+      <ul class="mt-4 space-y-2">
+        <li>To provide booking, account, and admin functionality.</li>
+        <li>To send booking confirmations, reminders, review prompts, and service messages where the product supports them.</li>
+        <li>To keep records accurate, investigate issues, and protect the service from misuse.</li>
+        <li>To support reporting and export tools such as financial summary views and Google Sheets sync when a business chooses to use them.</li>
+      </ul>
+    </article>
+
+    <article class="legal-card">
+      <h2 class="text-xl font-semibold text-brand-navy">4. Google integrations</h2>
+      <p class="mt-4">If a business connects Google Sheets, Elysium may access the Google account details and spreadsheet permissions needed to create, update, sync, or disconnect that spreadsheet in Google Drive. We do not state that we access unrelated Google data.</p>
+    </article>
+
+    <article class="legal-card">
+      <h2 class="text-xl font-semibold text-brand-navy">5. Stripe and payments</h2>
+      <p class="mt-4">Where payment-related functionality is used, payment processing is handled by Stripe and not by storing full card details on this website. Stripe-related roadmap work may appear on the product site, but only clearly confirmed live payment flows should be treated as active processing features.</p>
+    </article>
+
+    <article class="legal-card">
+      <h2 class="text-xl font-semibold text-brand-navy">6. Processors and service providers</h2>
+      <p class="mt-4">Elysium may use service providers such as hosting providers, database and authentication infrastructure, email delivery providers, Google, and Stripe in order to run the service. We share only the information needed for those providers to do their role.</p>
+    </article>
+
+    <article class="legal-card">
+      <h2 class="text-xl font-semibold text-brand-navy">7. Retention</h2>
+      <p class="mt-4">We keep information for as long as it is needed to operate the service, meet legal or tax obligations, resolve disputes, and maintain reasonable business records. Exact retention periods may vary depending on the type of data and the business relationship.</p>
+    </article>
+
+    <article class="legal-card">
+      <h2 class="text-xl font-semibold text-brand-navy">8. Your rights</h2>
+      <p class="mt-4">Depending on the law that applies, you may have rights to request access, correction, deletion, restriction, or export of your personal data. To make a request, contact <a class="link-inline" href={`mailto:${siteConfig.legal.privacyContact}`}>{siteConfig.legal.privacyContact}</a>.</p>
+    </article>
+
+    <article class="legal-card">
+      <h2 class="text-xl font-semibold text-brand-navy">9. Contact</h2>
+      <p class="mt-4">Questions about privacy can be sent to <a class="link-inline" href={`mailto:${siteConfig.legal.privacyContact}`}>{siteConfig.legal.privacyContact}</a>.</p>
+    </article>
+  </section>
+</BaseLayout>

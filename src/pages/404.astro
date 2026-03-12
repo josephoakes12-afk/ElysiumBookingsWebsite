@@ -1,0 +1,18 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout pathname="/404" title="Page not found" description="The page you were looking for could not be found.">
+  <section class="container pt-16">
+    <div class="hero-panel max-w-3xl">
+      <p class="eyebrow">404</p>
+      <h1 class="page-title">That page is not here.</h1>
+      <p class="page-summary">Use the main navigation to return to the product pages, legal pages, or contact route.</p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a class="button button--primary" href="/">Back to home</a>
+        <a class="button button--secondary" href="/contact">Contact Elysium</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+

@@ -1,0 +1,70 @@
+---
+import PageHero from "../components/PageHero.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteConfig } from "../config/site";
+---
+
+<BaseLayout pathname="/terms" title="Terms of Service" description="Terms of Service for Elysium Bookings.">
+  <PageHero
+    eyebrow="Terms of Service"
+    title="Practical terms for an early-stage product."
+    summary="Straightforward terms covering access to the service, acceptable use, pricing, and liability."
+  />
+
+  <section class="container mt-12 space-y-6">
+    <article class="legal-card">
+      <p><strong>Effective date:</strong> {siteConfig.legal.effectiveDate}</p>
+      <p><strong>Service provider:</strong> {siteConfig.legal.businessLegalName}</p>
+      <p><strong>Contact:</strong> {siteConfig.contact.supportEmail}</p>
+    </article>
+
+    <article class="legal-card">
+      <h2 class="text-xl font-semibold text-brand-navy">1. Using the service</h2>
+      <p class="mt-4">Elysium Bookings provides booking, account, and admin tools for beauty businesses and their clients. You agree to use the service lawfully and only for legitimate business or customer activity.</p>
+    </article>
+
+    <article class="legal-card">
+      <h2 class="text-xl font-semibold text-brand-navy">2. Accounts and responsibilities</h2>
+      <p class="mt-4">You are responsible for keeping account credentials secure, keeping your information reasonably accurate, and making sure any staff or connected users use the service appropriately. Businesses are responsible for the data they enter and the policies they show to clients.</p>
+    </article>
+
+    <article class="legal-card">
+      <h2 class="text-xl font-semibold text-brand-navy">3. Acceptable use</h2>
+      <ul class="mt-4 space-y-2">
+        <li>Do not misuse the service, interfere with security, or attempt unauthorised access.</li>
+        <li>Do not upload or share unlawful, infringing, or harmful material.</li>
+        <li>Do not use Elysium to send spam, abuse customers, or process fraudulent bookings.</li>
+      </ul>
+    </article>
+
+    <article class="legal-card">
+      <h2 class="text-xl font-semibold text-brand-navy">4. Availability and changes</h2>
+      <p class="mt-4">We aim to keep the service available and reliable, but we do not promise uninterrupted access. Features may change, improve, or be removed over time, especially where roadmap work is still being introduced carefully.</p>
+    </article>
+
+    <article class="legal-card">
+      <h2 class="text-xl font-semibold text-brand-navy">5. Pricing and billing</h2>
+      <p class="mt-4">If paid plans are used, pricing and billing terms will be shown publicly or agreed with the business before charges begin. Taxes, payment provider fees, and billing mechanics may vary depending on the plan and integration used.</p>
+    </article>
+
+    <article class="legal-card">
+      <h2 class="text-xl font-semibold text-brand-navy">6. Intellectual property</h2>
+      <p class="mt-4">The Elysium Bookings product, website content, branding, and software remain the property of the operator or its licensors unless stated otherwise. You keep ownership of your own business and client data, subject to the rights needed for us to run the service.</p>
+    </article>
+
+    <article class="legal-card">
+      <h2 class="text-xl font-semibold text-brand-navy">7. Suspension and termination</h2>
+      <p class="mt-4">We may suspend or terminate access where there is misuse, non-payment, legal risk, or a need to protect the service or other users. You may also stop using the service at any time, subject to any active billing terms.</p>
+    </article>
+
+    <article class="legal-card">
+      <h2 class="text-xl font-semibold text-brand-navy">8. Liability</h2>
+      <p class="mt-4">To the fullest extent allowed by law, Elysium is provided on an as-available basis and we are not liable for indirect, incidental, or consequential losses. Nothing in these terms excludes liability that cannot legally be excluded.</p>
+    </article>
+
+    <article class="legal-card">
+      <h2 class="text-xl font-semibold text-brand-navy">9. Contact</h2>
+      <p class="mt-4">If you have questions about these terms, email <a class="link-inline" href={`mailto:${siteConfig.contact.supportEmail}`}>{siteConfig.contact.supportEmail}</a>.</p>
+    </article>
+  </section>
+</BaseLayout>
