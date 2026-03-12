@@ -1,0 +1,92 @@
+---
+import FaqList from "../components/FaqList.astro";
+import FeatureCard from "../components/FeatureCard.astro";
+import PricingCard from "../components/PricingCard.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteConfig } from "../config/site";
+---
+
+<BaseLayout pathname="/" title="Booking software for UK beauty businesses">
+  <section class="container pt-10 sm:pt-14">
+    <div class="hero-panel grid gap-10 lg:grid-cols-[1.25fr_0.75fr] lg:items-end">
+      <div>
+        <p class="eyebrow">Mobile-first beauty booking software</p>
+        <h1 class="page-title">{siteConfig.homepage.heroTitle}</h1>
+        <p class="page-summary">{siteConfig.homepage.heroSummary}</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a class="button button--primary" href={siteConfig.ctas.primary.href}>{siteConfig.ctas.primary.label}</a>
+          <a class="button button--secondary" href={siteConfig.ctas.secondary.href}>{siteConfig.ctas.secondary.label}</a>
+        </div>
+      </div>
+
+      <div class="content-panel">
+        <p class="eyebrow">Built around the real product</p>
+        <ul class="mt-4 space-y-4 text-sm leading-7 text-slate-600">
+          <li>Multi-business booking flow and practical admin tools.</li>
+          <li>Designed for UK solo and micro beauty businesses, not generic salons first.</li>
+          <li>Clearer revenue visibility for sole traders, with Google Sheets export for tax and accountant workflows.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="container mt-16">
+    <p class="eyebrow">Who it is for</p>
+    <h2 class="section-title mt-3">{siteConfig.homepage.audienceTitle}</h2>
+    <div class="chip-row mt-8">
+      {siteConfig.focusSegments.map((item) => <span class="chip">{item}</span>)}
+    </div>
+  </section>
+
+  <section class="container mt-16 grid gap-6 md:grid-cols-3">
+    {siteConfig.homepage.differentiators.map((item) => <FeatureCard title={item.title} description={item.description} />)}
+  </section>
+
+  <section class="container mt-16">
+    <p class="eyebrow">Feature highlights</p>
+    <div class="mt-6 grid gap-6 lg:grid-cols-2">
+      {siteConfig.featureTruth.liveNow.slice(0, 6).map((item) => <FeatureCard title={item.title} description={item.description} />)}
+    </div>
+  </section>
+
+  <section class="container mt-16">
+    <div class="content-panel">
+      <p class="eyebrow">Tax and admin value</p>
+      <h2 class="section-title mt-3">Built to make sole-trader admin less messy.</h2>
+      <div class="mt-6 grid gap-5 md:grid-cols-3">
+        {siteConfig.homepage.soleTraderPoints.map((item) => <div class="value-card"><p>{item}</p></div>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="container mt-16">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+      <div>
+        <p class="eyebrow">Pricing</p>
+        <h2 class="section-title mt-3">Straightforward monthly pricing for a leaner setup.</h2>
+      </div>
+      <a class="button button--ghost" href="/pricing">View full pricing</a>
+    </div>
+    <div class="mt-8 grid gap-6 lg:grid-cols-3">
+      {siteConfig.pricing.map((tier) => <PricingCard {...tier} />)}
+    </div>
+  </section>
+
+  <section class="container mt-16">
+    <div class="content-panel">
+      <p class="eyebrow">FAQ</p>
+      <h2 class="section-title mt-3">Straight answers for businesses checking fit.</h2>
+      <div class="mt-8">
+        <FaqList items={siteConfig.homepage.faqs} />
+      </div>
+    </div>
+  </section>
+
+  <section class="container mt-16">
+    <div class="content-panel">
+      <p class="eyebrow">Trust</p>
+      <h2 class="section-title mt-3">A clear public home for the product.</h2>
+      <p class="section-summary">Privacy, terms, contact details, and the core product story all live on the same domain so customers, partners, and verification teams can see what Elysium is and what it is for.</p>
+    </div>
+  </section>
+</BaseLayout>

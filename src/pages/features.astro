@@ -1,0 +1,39 @@
+---
+import FeatureCard from "../components/FeatureCard.astro";
+import PageHero from "../components/PageHero.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteConfig } from "../config/site";
+---
+
+<BaseLayout
+  pathname="/features"
+  title="Features"
+  description="Explore the current Elysium Bookings feature set, including booking flow, admin tools, aftercare, financial summary, and Google Sheets export."
+>
+  <PageHero
+    eyebrow="Features"
+    title="A focused feature set for booking, admin, and sole-trader clarity."
+    summary="Elysium keeps the offer focused: a better client booking journey, more practical admin tools, and stronger visibility for sole-trader workflows."
+  />
+
+  <section class="container mt-12 grid gap-6 lg:grid-cols-2">
+    {siteConfig.featureSections.map((item) => <FeatureCard title={item.title} description={item.description} />)}
+  </section>
+
+  <section class="container mt-16">
+    <p class="eyebrow">Live now</p>
+    <div class="mt-6 grid gap-6 lg:grid-cols-2">
+      {siteConfig.featureTruth.liveNow.map((item) => <FeatureCard title={item.title} description={item.description} status="live" />)}
+    </div>
+  </section>
+
+  <section class="container mt-16">
+    <div class="content-panel">
+      <p class="eyebrow">Roadmap</p>
+      <h2 class="section-title mt-3">What is planned next is shown separately.</h2>
+      <div class="mt-8 grid gap-6">
+        {siteConfig.featureTruth.roadmap.map((item) => <FeatureCard title={item.title} description={item.description} status="roadmap" />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

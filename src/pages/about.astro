@@ -1,0 +1,31 @@
+---
+import PageHero from "../components/PageHero.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  pathname="/about"
+  title="About"
+  description="Why Elysium Bookings exists and who it is designed to help."
+>
+  <PageHero
+    eyebrow="About"
+    title="Built from the practical realities of small beauty businesses."
+    summary="Elysium Bookings exists to offer a calmer, more niche-fit alternative to generic booking tools for UK solo and micro beauty businesses."
+  />
+
+  <section class="container mt-12 grid gap-6 lg:grid-cols-2">
+    <div class="content-panel">
+      <p class="eyebrow">Why it exists</p>
+      <p class="mt-4 text-base leading-8 text-slate-600">
+        Many booking platforms are broad, busy, and built around assumptions that do not match small beauty businesses. Elysium takes a narrower path: cleaner booking journeys, practical admin, and features that matter when one person is handling treatments, client messages, and finance.
+      </p>
+    </div>
+    <div class="content-panel">
+      <p class="eyebrow">What it is aiming for</p>
+      <p class="mt-4 text-base leading-8 text-slate-600">
+        The direction is deliberately lean. Elysium is not trying to be everything for everyone. It is aiming to be a stronger fit for the beauty businesses that need booking, admin, aftercare, and reporting to work together without unnecessary clutter.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
