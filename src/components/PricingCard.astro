@@ -1,0 +1,24 @@
+---
+interface Props {
+  name: string;
+  price: string;
+  period: string;
+  description: string;
+  fit: string;
+  featured?: boolean;
+}
+
+const { name, price, period, description, fit, featured = false } = Astro.props;
+---
+
+<article class:list={["pricing-card", featured && "pricing-card--featured"]}>
+  {featured ? <p class="pricing-card__badge">Most practical starting point</p> : null}
+  <h3 class="pricing-card__name">{name}</h3>
+  <p class="pricing-card__price">
+    {price}
+    <span>{period}</span>
+  </p>
+  <p class="pricing-card__description">{description}</p>
+  <p class="pricing-card__fit">{fit}</p>
+</article>
+

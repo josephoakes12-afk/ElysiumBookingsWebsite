@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Elysium Bookings icon">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#223A58"/>
+      <stop offset="100%" stop-color="#162235"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="132" fill="url(#bg)"/>
+  <path d="M152 126h210v44H203v77h137v44H203v95h159v44H152z" fill="#F5F4EF"/>
+  <circle cx="368" cy="142" r="34" fill="#C1A56E"/>
+</svg>
+

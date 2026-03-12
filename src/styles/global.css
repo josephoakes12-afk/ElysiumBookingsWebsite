@@ -1,0 +1,307 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Manrope";
+  src: url("/fonts/manrope-latin-var.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 200 800;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/fonts/playfair-display-latin-var.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 400 900;
+}
+
+:root {
+  color-scheme: light;
+  --canvas: #f5f4ef;
+  --paper: rgba(255, 255, 255, 0.76);
+  --ink: #111827;
+  --muted: #4b5563;
+  --line: rgba(34, 58, 88, 0.12);
+  --navy: #223a58;
+  --gold: #c1a56e;
+  --blue: #587cbb;
+  --bronze: #543e1e;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply m-0 bg-canvas font-sans text-ink antialiased;
+  background:
+    radial-gradient(circle at top right, rgba(88, 124, 187, 0.12), transparent 26%),
+    radial-gradient(circle at top left, rgba(193, 165, 110, 0.14), transparent 22%),
+    linear-gradient(180deg, #f8f7f2, #f5f4ef 24rem, #f9f8f4 100%);
+}
+
+a {
+  @apply text-inherit no-underline;
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
+.page-shell {
+  min-height: 100vh;
+}
+
+.site-main {
+  @apply pb-16;
+}
+
+.container {
+  @apply mx-auto w-full max-w-container px-5 sm:px-6 lg:px-8;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(18px);
+  background: rgba(248, 247, 242, 0.82);
+  border-bottom: 1px solid rgba(34, 58, 88, 0.08);
+}
+
+.site-footer {
+  background:
+    radial-gradient(circle at top right, rgba(193, 165, 110, 0.18), transparent 24%),
+    linear-gradient(180deg, #223a58, #162235);
+}
+
+.brand-mark {
+  @apply inline-flex items-center gap-3;
+}
+
+.brand-mark__symbol {
+  @apply grid h-11 w-11 place-items-center rounded-2xl bg-brand-navy text-lg font-semibold text-white shadow-soft;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 12px 30px rgba(34, 58, 88, 0.18);
+}
+
+.brand-mark__name {
+  @apply block text-sm font-semibold tracking-[0.16em] text-brand-navy uppercase;
+}
+
+.brand-mark__tagline {
+  @apply block text-xs text-slate-500;
+}
+
+.nav-link {
+  @apply rounded-full px-4 py-2 text-sm text-slate-600 transition;
+}
+
+.nav-link:hover,
+.nav-link--active {
+  @apply bg-white text-brand-navy;
+  box-shadow: 0 8px 24px rgba(34, 58, 88, 0.08);
+}
+
+.mobile-menu {
+  @apply relative;
+}
+
+.mobile-menu summary {
+  @apply cursor-pointer list-none rounded-full border border-slate-300/80 bg-white px-4 py-2 text-sm font-medium text-brand-navy;
+}
+
+.mobile-menu[open] summary {
+  @apply mb-3;
+}
+
+.mobile-menu__panel {
+  @apply absolute right-0 z-10 flex min-w-56 flex-col gap-2 rounded-3xl border border-slate-200 bg-white p-4 shadow-panel;
+}
+
+.mobile-menu__link {
+  @apply rounded-2xl px-3 py-2 text-sm text-slate-600;
+}
+
+.mobile-menu__link--active,
+.mobile-menu__link:hover {
+  @apply bg-slate-50 text-brand-navy;
+}
+
+.button {
+  @apply inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition;
+}
+
+.button--primary {
+  @apply bg-brand-navy text-white shadow-soft;
+}
+
+.button--primary:hover {
+  transform: translateY(-1px);
+}
+
+.button--secondary {
+  @apply border border-slate-300 bg-white text-brand-navy;
+}
+
+.button--ghost {
+  @apply text-brand-navy;
+}
+
+.eyebrow {
+  @apply text-xs font-semibold uppercase tracking-[0.22em] text-brand-gold;
+}
+
+.hero-panel,
+.page-hero,
+.content-panel {
+  @apply rounded-[2rem] border border-white/70 bg-white/70 p-7 shadow-panel sm:p-10;
+  backdrop-filter: blur(18px);
+}
+
+.hero-panel {
+  @apply relative overflow-hidden;
+}
+
+.hero-panel::before {
+  content: "";
+  position: absolute;
+  inset: auto -7rem -7rem auto;
+  width: 18rem;
+  height: 18rem;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(193, 165, 110, 0.24), transparent 70%);
+}
+
+.page-title {
+  @apply mt-3 max-w-3xl font-serif text-4xl leading-tight text-brand-navy sm:text-5xl;
+}
+
+.page-summary {
+  @apply mt-4 max-w-2xl text-lg leading-8 text-slate-600;
+}
+
+.section-title {
+  @apply font-serif text-3xl text-brand-navy sm:text-4xl;
+}
+
+.section-summary {
+  @apply mt-3 max-w-2xl text-base leading-7 text-slate-600;
+}
+
+.feature-card,
+.value-card,
+.pricing-card,
+.legal-card {
+  @apply rounded-[1.75rem] border border-white/70 bg-white/70 p-6 shadow-soft;
+  backdrop-filter: blur(14px);
+}
+
+.feature-card__header {
+  @apply mb-4;
+}
+
+.feature-card__title {
+  @apply text-xl font-semibold text-brand-navy;
+}
+
+.feature-card__description {
+  @apply mt-3 text-sm leading-7 text-slate-600;
+}
+
+.status-pill {
+  @apply inline-flex rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em];
+}
+
+.status-pill--live {
+  background: rgba(34, 58, 88, 0.08);
+  color: #223a58;
+}
+
+.status-pill--roadmap {
+  background: rgba(193, 165, 110, 0.16);
+  color: #543e1e;
+}
+
+.pricing-card {
+  @apply h-full;
+}
+
+.pricing-card--featured {
+  border-color: rgba(193, 165, 110, 0.45);
+  box-shadow: 0 22px 70px rgba(34, 58, 88, 0.14);
+}
+
+.pricing-card__badge {
+  @apply mb-5 inline-flex rounded-full bg-brand-gold/20 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-bronze;
+}
+
+.pricing-card__name {
+  @apply text-lg font-semibold text-brand-navy;
+}
+
+.pricing-card__price {
+  @apply mt-4 font-serif text-5xl text-brand-navy;
+}
+
+.pricing-card__price span {
+  @apply ml-2 text-base font-sans text-slate-500;
+}
+
+.pricing-card__description {
+  @apply mt-4 text-sm leading-7 text-slate-600;
+}
+
+.pricing-card__fit {
+  @apply mt-5 rounded-2xl bg-slate-50 px-4 py-3 text-sm text-slate-600;
+}
+
+.footer-heading {
+  @apply text-sm font-semibold uppercase tracking-[0.16em] text-white;
+}
+
+.footer-links {
+  @apply mt-4 space-y-3 text-sm text-white/70;
+}
+
+.footer-links a:hover {
+  @apply text-white;
+}
+
+.chip-row {
+  @apply flex flex-wrap gap-3;
+}
+
+.chip {
+  @apply inline-flex rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700;
+}
+
+.faq-list {
+  @apply space-y-4;
+}
+
+.faq-item {
+  @apply rounded-[1.5rem] border border-white/70 bg-white/70 px-6 py-5 shadow-soft;
+}
+
+.faq-item summary {
+  @apply cursor-pointer list-none pr-6 text-base font-semibold text-brand-navy;
+}
+
+.faq-item p {
+  @apply mt-3 text-sm leading-7 text-slate-600;
+}
+
+.legal-card p,
+.legal-card li {
+  @apply text-sm leading-7 text-slate-600;
+}
+
+.legal-card ul {
+  @apply my-0 pl-5;
+}
+
+.link-inline {
+  @apply text-brand-navy underline decoration-brand-gold/60 underline-offset-4;
+}

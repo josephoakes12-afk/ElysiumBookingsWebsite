@@ -1,0 +1,52 @@
+---
+import { siteConfig } from "../config/site";
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = "/" } = Astro.props;
+---
+
+<header class="site-header">
+  <div class="container flex items-center justify-between gap-6 py-5">
+    <a href="/" class="brand-mark" aria-label={`${siteConfig.name} home`}>
+      <span class="brand-mark__symbol">E</span>
+      <span>
+        <span class="brand-mark__name">{siteConfig.name}</span>
+        <span class="brand-mark__tagline">{siteConfig.tagline}</span>
+      </span>
+    </a>
+
+    <nav class="hidden items-center gap-2 md:flex" aria-label="Primary">
+      {
+        siteConfig.navigation.map((item) => (
+          <a href={item.href} class:list={["nav-link", { "nav-link--active": currentPath === item.href }]}>
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <a class="button button--primary hidden md:inline-flex" href={siteConfig.ctas.primary.href}>
+      {siteConfig.ctas.primary.label}
+    </a>
+
+    <details class="mobile-menu md:hidden">
+      <summary>Menu</summary>
+      <div class="mobile-menu__panel">
+        {
+          siteConfig.navigation.map((item) => (
+            <a href={item.href} class:list={["mobile-menu__link", { "mobile-menu__link--active": currentPath === item.href }]}>
+              {item.label}
+            </a>
+          ))
+        }
+        <a class="button button--primary w-full justify-center" href={siteConfig.ctas.primary.href}>
+          {siteConfig.ctas.primary.label}
+        </a>
+      </div>
+    </details>
+  </div>
+</header>
+
