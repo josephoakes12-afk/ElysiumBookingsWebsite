@@ -373,6 +373,10 @@ a {
   backdrop-filter: blur(18px);
 }
 
+.cookie-banner[hidden] {
+  display: none;
+}
+
 .cookie-banner__text {
   @apply m-0 text-sm leading-6 text-slate-600;
 }
