@@ -4,6 +4,15 @@ import FeatureCard from "../components/FeatureCard.astro";
 import PricingCard from "../components/PricingCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { siteConfig } from "../config/site";
+
+const homeHighlightTitles = [
+  "Client booking flow",
+  "Client import wizard",
+  "Aftercare per service",
+  "Stripe card hold and no-show protection"
+];
+
+const homeHighlights = siteConfig.featureTruth.liveNow.filter((item) => homeHighlightTitles.includes(item.title));
 ---
 
 <BaseLayout
@@ -27,11 +36,11 @@ import { siteConfig } from "../config/site";
       </div>
 
       <div class="content-panel">
-        <p class="eyebrow">Built around the real product</p>
+        <p class="eyebrow">Why Elysium stands out</p>
         <ul class="mt-4 space-y-4 text-sm leading-7 text-slate-600">
-          <li>Multi-business booking flow and practical admin tools.</li>
-          <li>Designed for UK solo and micro beauty businesses, not generic salons first.</li>
-          <li>Clearer revenue visibility for sole traders, with Google Sheets export for tax and accountant workflows.</li>
+          <li>Mobile-first booking and admin built for UK solo and micro beauty businesses.</li>
+          <li>Client import wizard included to make switching from other tools much less painful.</li>
+          <li>Live no-show protection, clearer reporting, and aftercare built into the core product.</li>
         </ul>
       </div>
     </div>
@@ -52,7 +61,7 @@ import { siteConfig } from "../config/site";
   <section class="container mt-16">
     <p class="eyebrow">Feature highlights</p>
     <div class="mt-6 grid gap-6 lg:grid-cols-2">
-      {siteConfig.featureTruth.liveNow.slice(0, 6).map((item) => <FeatureCard title={item.title} description={item.description} />)}
+      {homeHighlights.map((item) => <FeatureCard title={item.title} description={item.description} />)}
     </div>
   </section>
 
@@ -70,7 +79,7 @@ import { siteConfig } from "../config/site";
     <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
       <div>
         <p class="eyebrow">Pricing</p>
-        <h2 class="section-title mt-3">Straightforward monthly pricing for a leaner setup.</h2>
+        <h2 class="section-title mt-3">Simple monthly plans for businesses that want clarity, not clutter.</h2>
       </div>
       <a class="button button--ghost" href="/pricing">View full pricing</a>
     </div>
@@ -92,8 +101,8 @@ import { siteConfig } from "../config/site";
   <section class="container mt-16">
     <div class="content-panel">
       <p class="eyebrow">Trust</p>
-      <h2 class="section-title mt-3">A clear public home for the product.</h2>
-      <p class="section-summary">Privacy, terms, contact details, and the core product story all live on the same domain so customers, partners, and verification teams can see what Elysium is and what it is for.</p>
+      <h2 class="section-title mt-3">Transparent, clear, and easy to verify.</h2>
+      <p class="section-summary">We are transparent about who we are and how we operate. You will always find our privacy policy, terms, and support details on elysiumbookings.com.</p>
     </div>
   </section>
 </BaseLayout>

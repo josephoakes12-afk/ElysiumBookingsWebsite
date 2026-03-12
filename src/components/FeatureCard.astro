@@ -12,7 +12,7 @@ const { title, description, status } = Astro.props;
   {status ? (
     <div class="feature-card__header">
       <span class:list={["status-pill", status === "roadmap" ? "status-pill--roadmap" : "status-pill--live"]}>
-        {status === "roadmap" ? "On the roadmap" : "Live now"}
+        {status === "roadmap" ? "Coming soon" : "Live now"}
       </span>
     </div>
   ) : null}

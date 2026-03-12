@@ -286,7 +286,26 @@ a {
 }
 
 .faq-item summary {
-  @apply cursor-pointer list-none pr-6 text-base font-semibold text-brand-navy;
+  @apply relative cursor-pointer list-none pr-10 text-base font-semibold text-brand-navy;
+}
+
+.faq-item summary::after {
+  content: "+";
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #223a58;
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.faq-item[open] {
+  border-color: rgba(193, 165, 110, 0.35);
+  box-shadow: 0 20px 48px rgba(34, 58, 88, 0.08);
+}
+
+.faq-item[open] summary::after {
+  content: "−";
 }
 
 .faq-item p {
