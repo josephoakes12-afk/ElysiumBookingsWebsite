@@ -9,8 +9,8 @@ export const siteConfig = {
   locale: "en-GB",
   ctas: {
     primary: {
-      label: "Contact Elysium",
-      href: "mailto:support@elysiumbookings.com"
+      label: "Join the waitlist",
+      href: "/pricing#waitlist"
     },
     secondary: {
       label: "View features",
@@ -43,13 +43,13 @@ export const siteConfig = {
   focusSegments: ["Permanent jewellery", "Nails", "Lashes and brows", "Hair"],
   socialLinks: [],
   contact: {
-    supportEmail: "support@elysiumbookings.com",
-    privacyEmail: "privacy@elysiumbookings.com"
+    supportEmail: "josephoakes17@hotmail.com",
+    privacyEmail: "josephoakes17@hotmail.com"
   },
   legal: {
     businessLegalName: "Elysium Bookings",
     registeredAddress: "44 Stokesay Drive, Cheadle, Staffordshire, ST10 1YU, United Kingdom",
-    privacyContact: "privacy@elysiumbookings.com",
+    privacyContact: "josephoakes17@hotmail.com",
     effectiveDate: "June 2025"
   },
   pricing: [
@@ -71,10 +71,10 @@ export const siteConfig = {
     },
     {
       name: "Pro",
-      price: "\u00A330",
+      price: "\u00A335",
       period: "/month",
-      description: "For businesses that want stronger visibility, smoother switching, and more operational control.",
-      fit: "Best for businesses that want deeper reporting and stronger no-show protection.",
+      description: "For businesses that want stronger visibility, smoother switching, and more operational control after launch.",
+      fit: "Best for businesses that want deeper reporting and a broader operational toolkit.",
       featured: false
     }
   ],
@@ -115,17 +115,17 @@ export const siteConfig = {
       {
         title: "Google Sheets export",
         description: "Booking and revenue data can be synced into Google Sheets for accountant and tax workflows."
-      },
-      {
-        title: "Client import wizard",
-        description: "Bring clients across from Fresha or other tools with a preview-first import flow that reduces switching friction."
-      },
-      {
-        title: "Stripe card hold and no-show protection",
-        description: "Protect your time with card holds placed 48 hours before appointments and charges only when you confirm a genuine no-show."
       }
     ],
     roadmap: [
+      {
+        title: "Client import wizard",
+        description: "Coming soon: import clients from Fresha or other tools with a preview-first workflow that reduces switching friction."
+      },
+      {
+        title: "Stripe card hold and no-show protection",
+        description: "Coming soon: protect appointment time with pre-appointment card holds and only charge when you confirm a genuine no-show."
+      },
       {
         title: "Occasion-based booking",
         description: "Coming soon: occasion-led booking with intake questions and follow-up journeys for more tailored services."
@@ -133,9 +133,9 @@ export const siteConfig = {
     ]
   },
   homepage: {
-    heroTitle: "Mobile-first booking and admin for UK solo and micro beauty businesses.",
+    heroTitle: "Pre-launch booking and admin built for UK solo and micro beauty businesses.",
     heroSummary:
-      "Elysium Bookings helps independent beauty businesses run a polished booking experience, practical admin, and clearer reporting without the clutter of generic salon software.",
+      "Elysium Bookings is preparing to launch a mobile-first booking and admin platform for independent beauty businesses that want a cleaner client journey, calmer admin, and clearer reporting without the clutter of generic salon software.",
     audienceTitle: "Built for the beauty businesses generic booking tools rarely fit properly",
     differentiators: [
       {
@@ -143,12 +143,12 @@ export const siteConfig = {
         description: "A stronger fit for permanent jewellery, nails, lashes and brows, hair, and other service-led beauty businesses."
       },
       {
-        title: "Client import wizard included",
-        description: "Bring your client list across with less friction, so switching does not mean starting again from scratch."
+        title: "Client import wizard coming soon",
+        description: "A preview-first import flow is on the roadmap to help you move your client list across without starting again from scratch."
       },
       {
-        title: "No-show protection that respects your time",
-        description: "Use Stripe card holds to protect appointment time and only charge when you confirm a genuine no-show."
+        title: "No-show protection coming soon",
+        description: "Stripe card holds and no-show protection are planned to help protect appointment time without adding friction for genuine clients."
       }
     ],
     soleTraderPoints: [
@@ -165,17 +165,17 @@ export const siteConfig = {
       {
         question: "Can I import my clients from another system?",
         answer:
-          "Yes. The live client import wizard helps you bring clients across from Fresha and other tools with a preview-first workflow."
+          "Not yet publicly. The client import wizard is coming soon and is planned to help businesses move client lists across from Fresha and other tools with less switching friction."
       },
       {
         question: "Is no-show protection available now?",
         answer:
-          "Yes. Stripe card hold and no-show protection is live, with holds placed before appointments and charges only applied when a no-show is confirmed."
+          "Not yet publicly. Stripe card hold and no-show protection is coming soon and is planned to give businesses a clearer way to protect time from missed appointments."
       },
       {
         question: "What is still coming next?",
         answer:
-          "Occasion-based booking is the main feature on the current roadmap and is clearly shown as coming soon."
+          "The current coming-soon roadmap includes client import wizard, Stripe card hold and no-show protection, and occasion-based booking."
       }
     ]
   },
@@ -193,12 +193,12 @@ export const siteConfig = {
     {
       title: "Client import wizard",
       description:
-        "Seamlessly import your clients from Fresha or other tools with a preview-first workflow that reduces switching friction."
+        "Coming soon: seamlessly import clients from Fresha or other tools with a preview-first workflow that reduces switching friction."
     },
     {
       title: "No-show protection",
       description:
-        "Protect yourself from no-shows by placing holds 48 hours before appointments and charging only when you confirm a no-show."
+        "Coming soon: protect appointment time with Stripe card holds placed before appointments and charge only when you confirm a no-show."
     },
     {
       title: "Reminders and communication",
@@ -245,17 +245,17 @@ export const siteConfig = {
     {
       question: "Can I import my clients into Elysium?",
       answer:
-        "Yes. The client import wizard is live and built to reduce switching friction when moving from Fresha or another system."
+        "Not publicly yet. The client import wizard is coming soon and is planned to reduce switching friction when moving from Fresha or another system."
     },
     {
-      question: "Is no-show protection live?",
+      question: "Is no-show protection coming soon?",
       answer:
-        "Yes. Stripe card hold and no-show protection is live, giving businesses a cleaner way to protect time from missed appointments."
+        "Not publicly yet. Stripe card hold and no-show protection is coming soon and is planned to give businesses a cleaner way to protect time from missed appointments."
     },
     {
       question: "What is coming next?",
       answer:
-        "Occasion-based booking is the current coming-soon feature and remains clearly separated from the live feature set."
+        "Client import wizard, Stripe card hold and no-show protection, and occasion-based booking are the current coming-soon features and remain clearly separated from the live feature set."
     }
   ]
 } as const;
@@ -265,5 +265,5 @@ export function absoluteUrl(path = "/") {
 }
 
 export function pageTitle(title?: string) {
-  return title ? `${title} - ${siteConfig.name}` : siteConfig.name;
+  return title ? `${title} — ${siteConfig.name}` : siteConfig.name;
 }

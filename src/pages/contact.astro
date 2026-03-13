@@ -7,12 +7,12 @@ import { siteConfig } from "../config/site";
 <BaseLayout
   pathname="/contact"
   title="Contact"
-  description="Contact Elysium Bookings for support, privacy requests, verification checks, or general product enquiries."
+  description="Contact Elysium Bookings for support, privacy requests, verification checks, or pre-launch product enquiries."
 >
   <PageHero
     eyebrow="Contact"
     title="Need support or want to ask about Elysium?"
-    summary="Email is the clearest route for support, privacy requests, and product questions."
+    summary="Email is the clearest route for support, privacy requests, waitlist questions, and general product enquiries."
   />
 
   <section class="container mt-12 grid gap-6 lg:grid-cols-2">
@@ -20,7 +20,7 @@ import { siteConfig } from "../config/site";
       <p class="eyebrow">Support</p>
       <h2 class="mt-3 text-2xl font-semibold text-brand-navy">Email support</h2>
       <p class="mt-4 text-base leading-8 text-slate-600">
-        For support or general enquiries, email <a class="link-inline" href={`mailto:${siteConfig.contact.supportEmail}`}>{siteConfig.contact.supportEmail}</a>.
+        For support, waitlist questions, or general enquiries, email <a class="link-inline" href={`mailto:${siteConfig.contact.supportEmail}`}>{siteConfig.contact.supportEmail}</a>.
       </p>
       <a class="button button--primary mt-6" href={`mailto:${siteConfig.contact.supportEmail}`}>Email support</a>
     </article>

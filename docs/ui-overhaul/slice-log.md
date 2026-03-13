@@ -6,3 +6,9 @@
 - Moved occasion-based booking to the roadmap as the only coming-soon item.
 - Rewrote home, features, pricing, about, FAQ, contact, privacy, and terms copy to sound customer-facing and launch-ready.
 - Added minimal workspace-aware unit checks for feature truth and pricing so the requested `pnpm -w` verification commands can run in this repo.
+
+## 2026-03-13 - Pre-launch messaging refresh
+
+- Repositioned the public site around a pre-launch waitlist, with homepage, pricing, about, FAQ, and contact copy updated to invite early interest rather than immediate signup.
+- Moved client import wizard and Stripe card hold/no-show protection back into the coming-soon roadmap alongside occasion-based booking.
+- Updated the public contact and privacy email address to `josephoakes17@hotmail.com` across the shared site configuration and customer-facing pages.

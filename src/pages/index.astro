@@ -7,9 +7,9 @@ import { siteConfig } from "../config/site";
 
 const homeHighlightTitles = [
   "Client booking flow",
-  "Client import wizard",
   "Aftercare per service",
-  "Stripe card hold and no-show protection"
+  "Financial summary dashboard",
+  "Google Sheets export"
 ];
 
 const homeHighlights = siteConfig.featureTruth.liveNow.filter((item) => homeHighlightTitles.includes(item.title));
@@ -18,16 +18,16 @@ const homeHighlights = siteConfig.featureTruth.liveNow.filter((item) => homeHigh
 <BaseLayout
   pathname="/"
   title="Booking Software for UK Beauty and Wellness Businesses"
-  description="Elysium Bookings is a mobile-first booking platform for beauty and wellness businesses in the UK, with practical admin tools, aftercare support, and clearer sole-trader reporting."
+  description="Elysium Bookings is a pre-launch mobile-first booking platform for UK beauty and wellness businesses, with practical admin tools, aftercare support, clearer sole-trader reporting, and an active waitlist."
 >
   <section class="container pt-10 sm:pt-14">
     <div class="hero-panel grid gap-10 lg:grid-cols-[1.25fr_0.75fr] lg:items-end">
       <div>
-        <p class="eyebrow">Mobile-first beauty booking software</p>
+        <p class="eyebrow">Pre-launch beauty booking software</p>
         <h1 class="page-title">{siteConfig.homepage.heroTitle}</h1>
         <p class="page-summary">{siteConfig.homepage.heroSummary}</p>
         <p class="mt-4 max-w-2xl text-sm leading-7 text-slate-600">
-          Built for beauty and wellness businesses across the UK, with a particularly strong fit for solo and micro operators.
+          Built for beauty and wellness businesses across the UK, with a particularly strong fit for solo and micro operators joining ahead of launch.
         </p>
         <div class="mt-8 flex flex-wrap gap-3">
           <a class="button button--primary" href={siteConfig.ctas.primary.href}>{siteConfig.ctas.primary.label}</a>
@@ -36,11 +36,11 @@ const homeHighlights = siteConfig.featureTruth.liveNow.filter((item) => homeHigh
       </div>
 
       <div class="content-panel">
-        <p class="eyebrow">Why Elysium stands out</p>
+        <p class="eyebrow">Why join early</p>
         <ul class="mt-4 space-y-4 text-sm leading-7 text-slate-600">
-          <li>Mobile-first booking and admin built for UK solo and micro beauty businesses.</li>
-          <li>Client import wizard included to make switching from other tools much less painful.</li>
-          <li>Live no-show protection, clearer reporting, and aftercare built into the core product.</li>
+          <li>Mobile-first booking and admin designed around the day-to-day reality of UK solo and micro beauty businesses.</li>
+          <li>Join the waitlist to hear when client import tools and no-show protection become available.</li>
+          <li>See the product direction early, with aftercare, reporting, and practical admin at the heart of the platform.</li>
         </ul>
       </div>
     </div>
@@ -79,9 +79,10 @@ const homeHighlights = siteConfig.featureTruth.liveNow.filter((item) => homeHigh
     <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
       <div>
         <p class="eyebrow">Pricing</p>
-        <h2 class="section-title mt-3">Simple monthly plans for businesses that want clarity, not clutter.</h2>
+        <h2 class="section-title mt-3">Simple monthly plans, ready for when Elysium launches publicly.</h2>
+        <p class="section-summary mt-3">Free, Starter, and Pro are the planned monthly tiers after launch. Join the waitlist to hear when access opens.</p>
       </div>
-      <a class="button button--ghost" href="/pricing">View full pricing</a>
+      <a class="button button--ghost" href="/pricing#waitlist">Join the waitlist</a>
     </div>
     <div class="mt-8 grid gap-6 lg:grid-cols-3">
       {siteConfig.pricing.map((tier) => <PricingCard {...tier} />)}
@@ -101,8 +102,8 @@ const homeHighlights = siteConfig.featureTruth.liveNow.filter((item) => homeHigh
   <section class="container mt-16">
     <div class="content-panel">
       <p class="eyebrow">Trust</p>
-      <h2 class="section-title mt-3">Transparent, clear, and easy to verify.</h2>
-      <p class="section-summary">We are transparent about who we are and how we operate. You will always find our privacy policy, terms, and support details on elysiumbookings.com.</p>
+      <h2 class="section-title mt-3">Transparent from the start.</h2>
+      <p class="section-summary">We keep the essentials easy to find, including our privacy policy, terms, address, and direct contact details, so you can check who is behind Elysium before launch and beyond.</p>
     </div>
   </section>
 </BaseLayout>

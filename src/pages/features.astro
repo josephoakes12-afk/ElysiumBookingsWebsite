@@ -8,12 +8,12 @@ import { siteConfig } from "../config/site";
 <BaseLayout
   pathname="/features"
   title="Features"
-  description="Explore the live Elysium Bookings feature set, including booking flow, client import, no-show protection, admin tools, aftercare, and reporting."
+  description="Explore the Elysium Bookings feature set, including live pilot-ready tools for bookings and admin plus coming-soon features planned for launch."
 >
   <PageHero
     eyebrow="Features"
     title="A focused feature set for bookings, admin, and business clarity."
-    summary="Elysium keeps the offer practical: a polished client journey, stronger admin control, easier switching, and tools that support the way small beauty businesses actually work."
+    summary="Elysium keeps the offer practical: a polished client journey, stronger admin control, and a clear view of what is already in the product versus what is still coming soon."
   />
 
   <section class="container mt-12 grid gap-6 lg:grid-cols-2">
@@ -22,6 +22,7 @@ import { siteConfig } from "../config/site";
 
   <section class="container mt-16">
     <p class="eyebrow">Live now</p>
+    <h2 class="section-title mt-3">Core tools already built into the platform.</h2>
     <div class="mt-6 grid gap-6 lg:grid-cols-2">
       {siteConfig.featureTruth.liveNow.map((item) => <FeatureCard title={item.title} description={item.description} status="live" />)}
     </div>
@@ -30,7 +31,7 @@ import { siteConfig } from "../config/site";
   <section class="container mt-16">
     <div class="content-panel">
       <p class="eyebrow">Coming soon</p>
-      <h2 class="section-title mt-3">What is next stays clearly separate from what is live today.</h2>
+      <h2 class="section-title mt-3">What is next stays clearly separate from what is available today.</h2>
       <div class="mt-8 grid gap-6">
         {siteConfig.featureTruth.roadmap.map((item) => <FeatureCard title={item.title} description={item.description} status="roadmap" />)}
       </div>
