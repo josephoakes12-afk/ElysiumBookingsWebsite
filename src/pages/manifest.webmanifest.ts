@@ -8,18 +8,13 @@ export const GET: APIRoute = () =>
       short_name: siteConfig.shortName,
       start_url: "/",
       display: "standalone",
-      background_color: "#F5F4EF",
-      theme_color: "#223A58",
+      background_color: "#FEFBF7",
+      theme_color: "#51504F",
       icons: [
         {
-          src: absoluteUrl("/icon-192.png"),
+          src: absoluteUrl("/branding/icons/elysium-monogram-rounded-square.png"),
           type: "image/png",
-          sizes: "192x192"
-        },
-        {
-          src: absoluteUrl("/icon-512.png"),
-          type: "image/png",
-          sizes: "512x512"
+          sizes: "1024x1024"
         }
       ]
     }),
