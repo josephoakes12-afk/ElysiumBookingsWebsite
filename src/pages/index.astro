@@ -1,109 +1,594 @@
 ---
-import FaqList from "../components/FaqList.astro";
-import FeatureCard from "../components/FeatureCard.astro";
-import PricingCard from "../components/PricingCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { siteConfig } from "../config/site";
 
-const homeHighlightTitles = [
-  "Client booking flow",
-  "Aftercare per service",
-  "Financial summary dashboard",
-  "Google Sheets export"
+const landingTitle = "Beauty, Booked Better";
+const landingDescription =
+  "Elysium Bookings is the booking platform built for modern beauty businesses, with flexible locations, cleaner client journeys, protected revenue, and calmer day-to-day admin.";
+
+interface ValueCard {
+  title: string;
+  description: string;
+  featured?: boolean;
+}
+
+interface FeatureSection {
+  number: string;
+  title: string;
+  description: string;
+  demo: "deposit" | "reporting" | "events" | "clients";
+  bullets?: string[];
+  ctaLabel?: string;
+  ctaHref?: string;
+  reverse?: boolean;
+}
+
+interface JourneyStep {
+  step: string;
+  title: string;
+  description: string;
+  demo: "discover" | "choose" | "pick-time" | "confirm";
+}
+
+interface PricingTier {
+  name: string;
+  price: string;
+  period: string;
+  features: string[];
+  ctaLabel: string;
+  featured?: boolean;
+}
+
+const valueCards: ValueCard[] = [
+  {
+    title: "Flexible Locations",
+    description:
+      "Work from a home studio, hire a chair, run pop-ups, or do the wedding fair circuit. Elysium works wherever you do — no fixed address required."
+  },
+  {
+    title: "Changing Hours",
+    description:
+      "Your schedule changes week to week. Set your availability as you go, block time off instantly, and never get double-booked.",
+    featured: true
+  },
+  {
+    title: "Intelligent Booking",
+    description:
+      "Clients book the service, time, and location that works for them. You get a clean calendar, automated reminders, and no more inbox admin."
+  },
+  {
+    title: "Solo Operations",
+    description:
+      "Built for one-person businesses from the ground up. No team management, no unnecessary complexity — just the tools a solo operator actually needs."
+  }
 ];
 
-const homeHighlights = siteConfig.featureTruth.liveNow.filter((item) => homeHighlightTitles.includes(item.title));
+const featureSections: FeatureSection[] = [
+  {
+    number: "01",
+    title: "Protect your revenue.",
+    description:
+      "Late cancellations and no-shows cost sole traders real money. Elysium lets you collect deposits at booking and charge cancellation fees automatically via Stripe — so you set your policy once and the platform enforces it for you.",
+    bullets: [
+      "Deposit collected securely at booking via Stripe",
+      "Automatic late cancellation and no-show fee charging"
+    ],
+    demo: "deposit"
+  },
+  {
+    number: "02",
+    title: "Never worry about tax.",
+    description:
+      "Every appointment syncs directly to a pre-configured spreadsheet in your own Google Drive, organised around UK self-assessment categories for sole traders. Hand it to your accountant or file it yourself — either way, January is no longer a problem.",
+    ctaLabel: "Explore reporting features",
+    ctaHref: "/features",
+    demo: "reporting",
+    reverse: true
+  },
+  {
+    number: "03",
+    title: "Run events properly.",
+    description:
+      "Heading to a wedding fair? Running a pop-up weekend? Set up a dedicated event calendar, share the link before you arrive, and let clients book their slot in advance. Your regular schedule and your event calendar stay separate and manageable in one place.",
+    demo: "events"
+  },
+  {
+    number: "04",
+    title: "Know your clients.",
+    description:
+      "Detailed client cards hold appointment history, notes, patch test records, and service preferences so you can deliver a personal experience every single time. Loyalty milestones, birthday tracking, and occasion-based bookings mean your regulars always feel remembered.",
+    demo: "clients",
+    reverse: true
+  }
+];
+
+const journeySteps: JourneyStep[] = [
+  {
+    step: "STEP 01",
+    title: "Discover",
+    description:
+      "Clients find your profile through the Elysium app or your shareable booking link — no account needed to browse.",
+    demo: "discover"
+  },
+  {
+    step: "STEP 02",
+    title: "Choose",
+    description:
+      "They select a service, pick a date and time from your live availability, and add any occasion details.",
+    demo: "choose"
+  },
+  {
+    step: "STEP 03",
+    title: "Pick Time",
+    description:
+      "Booking is confirmed instantly. A deposit is collected if your policy requires one. Reminders go out automatically before the appointment.",
+    demo: "pick-time"
+  },
+  {
+    step: "STEP 04",
+    title: "Confirm",
+    description:
+      "After their appointment they receive a review prompt. Loyalty milestones and personalised re-engagement notifications bring them back.",
+    demo: "confirm"
+  }
+];
+
+const pricingTiers: PricingTier[] = [
+  {
+    name: "Free",
+    price: "£0",
+    period: "/mo",
+    features: [
+      "Up to 30 bookings/mo",
+      "Up to 3 Services",
+      "Deposit collection via Stripe",
+      "Client Records and Notes",
+      "Admin Calendar (Day View)",
+      "Business Profile Page",
+      "Booking Confirmations",
+      "Walk-in Booking Tool",
+      "Mobile app for Clients and Admins"
+    ],
+    ctaLabel: "Get early access"
+  },
+  {
+    name: "Starter",
+    price: "£9",
+    period: "/mo",
+    features: [
+      "Everything in Free",
+      "Unlimited bookings and services",
+      "Push notifications and reminders",
+      "Multi-service basket booking",
+      "Pop-up event calendar",
+      "Waitlist for fully booked slots",
+      "Loyalty tracking and promo codes",
+      "Occasion-based booking type",
+      "Custom cancellation policy",
+      "Basic analytics dashboard"
+    ],
+    ctaLabel: "Join the waitlist",
+    featured: true
+  },
+  {
+    name: "Pro",
+    price: "£19",
+    period: "/mo",
+    features: [
+      "Everything in Starter",
+      "Google Sheets tax export",
+      "Quarterly tax report (PDF/CSV)",
+      "Expense tracker",
+      "Group and hen party booking",
+      "Automated no-show fee charging",
+      "Loyalty milestone notifications",
+      "Advanced client card templates",
+      "Patch test tracking",
+      "Priority support"
+    ],
+    ctaLabel: "Join the waitlist"
+  }
+];
+
+const faqQuestions = [
+  "Can I switch from Fresha or Treatwell easily?",
+  "Do you take a commission on my service sales?",
+  "Does it support mobile pop-ups and home visits?"
+] as const;
+
+const softwareApplicationSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: siteConfig.name,
+  url: siteConfig.url,
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web",
+  description: landingDescription,
+  offers: {
+    "@type": "AggregateOffer",
+    lowPrice: "0",
+    highPrice: "19",
+    priceCurrency: "GBP"
+  }
+};
 ---
 
 <BaseLayout
   pathname="/"
-  title="Booking Software for UK Beauty and Wellness Businesses"
-  description="Elysium Bookings is a pre-launch mobile-first booking platform for UK beauty and wellness businesses, with practical admin tools, aftercare support, clearer sole-trader reporting, and an active waitlist."
+  title={landingTitle}
+  description={landingDescription}
+  showHeader={false}
+  showFooter={false}
+  ogImagePath="/og-landing.svg"
+  extraSchemas={[softwareApplicationSchema]}
+  mainClass="site-main--flush"
 >
-  <section class="container pt-10 sm:pt-14">
-    <div class="hero-panel grid gap-10 lg:grid-cols-[1.25fr_0.75fr] lg:items-end">
-      <div>
-        <p class="eyebrow">Pre-launch beauty booking software</p>
-        <h1 class="page-title">{siteConfig.homepage.heroTitle}</h1>
-        <p class="page-summary">{siteConfig.homepage.heroSummary}</p>
-        <p class="mt-4 max-w-2xl text-sm leading-7 text-slate-600">
-          Built for beauty and wellness businesses across the UK, with a particularly strong fit for solo and micro operators joining ahead of launch.
-        </p>
-        <div class="mt-8 flex flex-wrap gap-3">
-          <a class="button button--primary" href={siteConfig.ctas.primary.href}>{siteConfig.ctas.primary.label}</a>
-          <a class="button button--secondary" href={siteConfig.ctas.secondary.href}>{siteConfig.ctas.secondary.label}</a>
+  <div class="landing-page">
+    <header class="landing-nav">
+      <div class="landing-shell landing-nav__inner">
+        <a href="/" class="landing-wordmark" aria-label={`${siteConfig.name} home`}>
+          <span>ELYSIUM</span>
+          <span>Bookings</span>
+        </a>
+
+        <nav class="landing-nav__links" aria-label="Primary">
+          <a href="#journey" class="landing-nav__link landing-nav__link--active">Experience</a>
+          <a href="#pricing" class="landing-nav__link">Pricing</a>
+          <a href="/features" class="landing-nav__link">Showcase</a>
+        </nav>
+
+        <div class="landing-nav__actions">
+          <a
+            href="/pricing#waitlist"
+            class="landing-icon-button"
+            aria-label="Join the waitlist"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-3.33 0-6 1.79-6 4v1h12v-1c0-2.21-2.67-4-6-4Z" />
+            </svg>
+          </a>
+          <a href="/pricing#waitlist" class="landing-nav__cta">Get Started</a>
+        </div>
+
+        <details class="landing-mobile-menu">
+          <summary>Menu</summary>
+          <div class="landing-mobile-menu__panel">
+            <a href="#journey">Experience</a>
+            <a href="#pricing">Pricing</a>
+            <a href="/features">Showcase</a>
+            <a href="/pricing#waitlist">Get Started</a>
+            <a href="/pricing#waitlist">Early Access</a>
+          </div>
+        </details>
+      </div>
+    </header>
+
+    <section class="landing-hero">
+      <div class="landing-shell landing-hero__inner">
+        <div class="landing-hero__copy">
+          <h1 class="landing-hero__title">
+            <span>Beauty,</span>
+            <em>Booked Better</em>
+          </h1>
+          <p class="landing-hero__summary">
+            The booking platform built for modern beauty businesses. Build your profile, set up your services, and let your clients book — all in one place, however and wherever you work.
+          </p>
+          <div class="landing-hero__actions">
+            <a href="/pricing#waitlist" class="landing-button landing-button--primary">Join The Waitlist</a>
+            <a href="#journey" class="landing-inline-link">View how it works ↓</a>
+          </div>
+        </div>
+
+        <div class="landing-hero-card" aria-hidden="true">
+          <div class="landing-hero-card__panel">
+            <div class="landing-hero-card__section landing-hero-card__section--divided">
+              <div class="landing-hero-card__heading">
+                <h2>Select Service</h2>
+                <span>⌄</span>
+              </div>
+
+              <div class="landing-service-card landing-service-card--selected">
+                <div>
+                  <h3>Signature Sculpt &amp; Glow</h3>
+                  <p>60 mins · £85</p>
+                </div>
+                <span class="landing-service-card__check">✓</span>
+              </div>
+
+              <div class="landing-service-card landing-service-card--muted">
+                <div>
+                  <h3>The Brow Edit</h3>
+                  <p>30 mins · £45</p>
+                </div>
+                <span class="landing-service-card__add">ADD</span>
+              </div>
+            </div>
+
+            <div class="landing-hero-card__section">
+              <h2>Available Times</h2>
+              <div class="landing-time-grid">
+                <span>10:00</span>
+                <span class="is-selected">11:30</span>
+                <span>14:00</span>
+              </div>
+              <div class="landing-hero-card__footer">Continue to Confirmation</div>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="content-panel">
-        <p class="eyebrow">Why join early</p>
-        <ul class="mt-4 space-y-4 text-sm leading-7 text-slate-600">
-          <li>Mobile-first booking and admin designed around the day-to-day reality of UK solo and micro beauty businesses.</li>
-          <li>Join the waitlist to hear when client import tools and no-show protection become available.</li>
-          <li>See the product direction early, with aftercare, reporting, and practical admin at the heart of the platform.</li>
-        </ul>
+    <section class="landing-band landing-band--muted" id="experience">
+      <div class="landing-shell landing-values">
+        <div class="landing-section-heading">
+          <p class="landing-eyebrow">Built for beauty professionals</p>
+          <h2>Software that follows your rhythm</h2>
+        </div>
+
+        <div class="landing-values__grid">
+          {
+            valueCards.map((card) => (
+              <article class:list={["landing-value-card", card.featured && "landing-value-card--featured"]}>
+                <div class="landing-value-card__icon" aria-hidden="true"></div>
+                <h3>{card.title}</h3>
+                <p>{card.description}</p>
+              </article>
+            ))
+          }
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="container mt-16">
-    <p class="eyebrow">Who it is for</p>
-    <h2 class="section-title mt-3">{siteConfig.homepage.audienceTitle}</h2>
-    <div class="chip-row mt-8">
-      {siteConfig.focusSegments.map((item) => <span class="chip">{item}</span>)}
-    </div>
-  </section>
+    <section class="landing-features">
+      <div class="landing-shell">
+        {
+          featureSections.map((feature) => (
+            <article class:list={["landing-feature", feature.reverse && "landing-feature--reverse"]}>
+              <div class="landing-feature__media" aria-hidden="true">
+                {feature.demo === "deposit" ? (
+                  <div class="landing-demo landing-demo--deposit">
+                    <div class="landing-payment-card">
+                      <p class="landing-payment-card__eyebrow">Payment summary</p>
+                      <div class="landing-payment-card__row">
+                        <span>Service Deposit</span>
+                        <strong>£25.00</strong>
+                      </div>
+                      <p class="landing-payment-card__note">
+                        Secure your appointment. Non-refundable if cancelled within 24 hours.
+                      </p>
+                      <div class="landing-payment-card__cta">Pay &amp; Confirm</div>
+                    </div>
+                  </div>
+                ) : null}
 
-  <section class="container mt-16 grid gap-6 md:grid-cols-3">
-    {siteConfig.homepage.differentiators.map((item) => <FeatureCard title={item.title} description={item.description} />)}
-  </section>
+                {feature.demo === "reporting" ? (
+                  <div class="landing-demo landing-demo--reporting">
+                    <div class="landing-sheet-card">
+                      <div class="landing-sheet-card__chips">
+                        <span></span>
+                        <span></span>
+                      </div>
+                      <div class="landing-sheet-card__table">
+                        <div class="landing-sheet-card__head">
+                          <span>Date</span>
+                          <span>Client</span>
+                          <span>Total</span>
+                        </div>
+                        <div><span>Oct 12</span><span>Sarah J.</span><span>£85.00</span></div>
+                        <div><span>Oct 12</span><span>Emma W.</span><span>£45.00</span></div>
+                        <div><span>Oct 13</span><span>Mia R.</span><span>£120.00</span></div>
+                      </div>
+                    </div>
+                  </div>
+                ) : null}
 
-  <section class="container mt-16">
-    <p class="eyebrow">Feature highlights</p>
-    <div class="mt-6 grid gap-6 lg:grid-cols-2">
-      {homeHighlights.map((item) => <FeatureCard title={item.title} description={item.description} />)}
-    </div>
-  </section>
+                {feature.demo === "events" ? (
+                  <div class="landing-demo landing-demo--events">
+                    <div class="landing-event-card">
+                      <div class="landing-event-card__badge">P</div>
+                      <div>
+                        <h3>Soho Pop-up Weekend</h3>
+                        <p>32 bookings confirmed</p>
+                      </div>
+                    </div>
+                    <div class="landing-event-card landing-event-card--muted">
+                      <div class="landing-event-card__badge">P</div>
+                      <div>
+                        <h3>Main Studio</h3>
+                        <p>Currently inactive</p>
+                      </div>
+                    </div>
+                  </div>
+                ) : null}
 
-  <section class="container mt-16">
-    <div class="content-panel">
-      <p class="eyebrow">Tax and admin value</p>
-      <h2 class="section-title mt-3">Built to make sole-trader admin less messy.</h2>
-      <div class="mt-6 grid gap-5 md:grid-cols-3">
-        {siteConfig.homepage.soleTraderPoints.map((item) => <div class="value-card"><p>{item}</p></div>)}
+                {feature.demo === "clients" ? (
+                  <div class="landing-demo landing-demo--clients">
+                    <div class="landing-client-card">
+                      <div class="landing-client-card__header">
+                        <span class="landing-client-card__avatar">LW</span>
+                        <h3>Lauren White</h3>
+                      </div>
+                      <div class="landing-client-card__notes">
+                        <p class="landing-client-card__label">Service Notes</p>
+                        <p>Prefers light pressure. Loves the sandalwood finish. Sensitive to citrus oil.</p>
+                      </div>
+                      <div class="landing-client-card__meta">
+                        <div>
+                          <p class="landing-client-card__label">Last Visit</p>
+                          <p>Sept 28</p>
+                        </div>
+                        <div>
+                          <p class="landing-client-card__label">Loyalty</p>
+                          <p>Tier 2 Elite</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+
+              <div class="landing-feature__copy">
+                <p class="landing-feature__number">{feature.number}</p>
+                <h2>{feature.title}</h2>
+                <p class="landing-feature__description">{feature.description}</p>
+
+                {
+                  feature.bullets ? (
+                    <ul class="landing-feature__list">
+                      {feature.bullets.map((bullet) => <li>{bullet}</li>)}
+                    </ul>
+                  ) : null
+                }
+
+                {
+                  feature.ctaLabel && feature.ctaHref ? (
+                    <a href={feature.ctaHref} class="landing-underlined-link">
+                      {feature.ctaLabel} →
+                    </a>
+                  ) : null
+                }
+              </div>
+            </article>
+          ))
+        }
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="container mt-16">
-    <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-      <div>
-        <p class="eyebrow">Pricing</p>
-        <h2 class="section-title mt-3">Simple monthly plans, ready for when Elysium launches publicly.</h2>
-        <p class="section-summary mt-3">Free, Starter, and Pro are the planned monthly tiers after launch. Join the waitlist to hear when access opens.</p>
+    <section class="landing-journey" id="journey">
+      <div class="landing-shell">
+        <div class="landing-section-heading landing-section-heading--centered">
+          <h2>The Client Journey</h2>
+          <p>
+            A frictionless four-step booking flow designed to maximise conversion and keep clients coming back.
+          </p>
+        </div>
+
+        <div class="landing-journey__grid">
+          {
+            journeySteps.map((step) => (
+              <article class="landing-journey-step">
+                <div class="landing-journey-step__demo" aria-hidden="true">
+                  {step.demo === "discover" ? (
+                    <div class="landing-journey-step__frame">
+                      <div class="landing-journey-step__card">
+                        <span class="w-12"></span>
+                        <span class="w-full"></span>
+                      </div>
+                    </div>
+                  ) : null}
+                  {step.demo === "choose" ? (
+                    <div class="landing-journey-step__frame">
+                      <div class="landing-journey-step__card landing-journey-step__card--stacked">
+                        <div>
+                          <span class="w-14"></span>
+                          <span class="w-8"></span>
+                        </div>
+                        <span class="w-full"></span>
+                        <span class="w-28"></span>
+                      </div>
+                    </div>
+                  ) : null}
+                  {step.demo === "pick-time" ? (
+                    <div class="landing-journey-step__frame">
+                      <div class="landing-journey-step__card landing-journey-step__card--times">
+                        <span></span>
+                        <span class="is-selected"></span>
+                        <span></span>
+                        <span></span>
+                      </div>
+                    </div>
+                  ) : null}
+                  {step.demo === "confirm" ? (
+                    <div class="landing-journey-step__frame">
+                      <div class="landing-journey-step__card landing-journey-step__card--confirm">
+                        <div class="landing-journey-step__check">✓</div>
+                        <span class="w-16"></span>
+                      </div>
+                    </div>
+                  ) : null}
+                </div>
+                <p class="landing-journey-step__eyebrow">{step.step}</p>
+                <h3>{step.title}</h3>
+                <p>{step.description}</p>
+              </article>
+            ))
+          }
+        </div>
       </div>
-      <a class="button button--ghost" href="/pricing#waitlist">Join the waitlist</a>
-    </div>
-    <div class="mt-8 grid gap-6 lg:grid-cols-3">
-      {siteConfig.pricing.map((tier) => <PricingCard {...tier} />)}
-    </div>
-  </section>
+    </section>
 
-  <section class="container mt-16">
-    <div class="content-panel">
-      <p class="eyebrow">FAQ</p>
-      <h2 class="section-title mt-3">Straight answers for businesses checking fit.</h2>
-      <div class="mt-8">
-        <FaqList items={siteConfig.homepage.faqs} />
+    <section class="landing-band landing-band--muted landing-pricing" id="pricing">
+      <div class="landing-shell">
+        <div class="landing-section-heading landing-section-heading--centered">
+          <h2>Honest Pricing</h2>
+          <p>
+            One flat monthly fee. No booking fees, no commission, no surprises. Elysium Bookings is currently in early access. Join the waitlist to be notified when your spot is ready.
+          </p>
+        </div>
+
+        <div class="landing-pricing__grid">
+          {
+            pricingTiers.map((tier) => (
+              <article class:list={["landing-pricing-card", tier.featured && "landing-pricing-card--featured"]}>
+                {tier.featured ? <p class="landing-pricing-card__badge">Most Popular</p> : null}
+                <h3>{tier.name}</h3>
+                <p class="landing-pricing-card__price">
+                  {tier.price}
+                  <span>{tier.period}</span>
+                </p>
+                <ul class="landing-pricing-card__list">
+                  {tier.features.map((feature) => <li>{feature}</li>)}
+                </ul>
+                <a href="/pricing#waitlist" class="landing-pricing-card__cta">
+                  {tier.ctaLabel}
+                </a>
+              </article>
+            ))
+          }
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="container mt-16">
-    <div class="content-panel">
-      <p class="eyebrow">Trust</p>
-      <h2 class="section-title mt-3">Transparent from the start.</h2>
-      <p class="section-summary">We keep the essentials easy to find, including our privacy policy, terms, address, and direct contact details, so you can check who is behind Elysium before launch and beyond.</p>
-    </div>
-  </section>
+    <section class="landing-faq">
+      <div class="landing-faq__inner">
+        <h2>Common Enquiries</h2>
+        <div class="landing-faq__list">
+          {faqQuestions.map((question) => (
+            <div class="landing-faq__item">
+              <span>{question}</span>
+              <span class="landing-faq__icon">+</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="landing-final-cta">
+      <div class="landing-final-cta__inner">
+        <h2>
+          <span>Focus on your craft.</span>
+          <span>We'll handle the calendar.</span>
+        </h2>
+        <p>
+          Join sole traders across the UK who use Elysium Bookings to run a professional, protected, low-admin beauty business — from nail technicians and lash artists to brow specialists, wax technicians, and permanent jewellery artists.
+        </p>
+        <div class="landing-final-cta__actions">
+          <a href="/pricing#waitlist" class="landing-button landing-button--light">Join the Waitlist</a>
+          <a href="/contact" class="landing-button landing-button--outline">Book a Platform Demo</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="landing-footer">
+      <div class="landing-shell landing-footer__inner">
+        <a href="/" class="landing-footer__brand">ELYSIUM Bookings</a>
+        <nav class="landing-footer__links" aria-label="Footer">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+          <a href="/contact">Contact Us</a>
+        </nav>
+        <p class="landing-footer__copyright">© 2024 ELYSIUM COLLECTIVE. ALL RIGHTS RESERVED.</p>
+      </div>
+    </footer>
+  </div>
 </BaseLayout>

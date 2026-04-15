@@ -8,12 +8,22 @@ interface Props {
   title?: string;
   description?: string;
   pathname?: string;
+  showHeader?: boolean;
+  showFooter?: boolean;
+  ogImagePath?: string;
+  extraSchemas?: Record<string, unknown>[];
+  mainClass?: string;
 }
 
 const {
   title,
   description = siteConfig.description,
-  pathname = "/"
+  pathname = "/",
+  showHeader = true,
+  showFooter = true,
+  ogImagePath = "/og-card.svg",
+  extraSchemas = [],
+  mainClass = ""
 } = Astro.props;
 
 const canonical = absoluteUrl(pathname);
@@ -25,6 +35,7 @@ const organizationSchema = {
   url: siteConfig.url,
   email: siteConfig.contact.supportEmail
 };
+const schemas = [organizationSchema, ...extraSchemas];
 ---
 
 <!doctype html>
@@ -44,20 +55,25 @@ const organizationSchema = {
     <meta property="og:title" content={metadataTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={absoluteUrl("/og-card.svg")} />
+    <meta property="og:image" content={absoluteUrl(ogImagePath)} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={metadataTitle} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={absoluteUrl("/og-card.svg")} />
-    <script is:inline type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <meta name="twitter:image" content={absoluteUrl(ogImagePath)} />
+    {
+      schemas.map((schema) => (
+        <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+      ))
+    }
+    <slot name="head" />
   </head>
   <body>
     <div class="page-shell">
-      <SiteHeader currentPath={pathname} />
-      <main class="site-main">
+      {showHeader ? <SiteHeader currentPath={pathname} /> : null}
+      <main class:list={["site-main", mainClass]}>
         <slot />
       </main>
-      <SiteFooter />
+      {showFooter ? <SiteFooter /> : null}
       <div class="cookie-banner" data-cookie-banner hidden>
         <p class="cookie-banner__text">
           This site uses essential cookies to keep the website working smoothly. Read the

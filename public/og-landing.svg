@@ -1,0 +1,20 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#FCF9F5" />
+  <rect x="72" y="72" width="1056" height="486" rx="32" fill="#F6F3EF" />
+  <rect x="696" y="132" width="360" height="366" rx="28" fill="#FFFFFF" stroke="#E3DDD5" />
+  <rect x="740" y="176" width="272" height="154" rx="20" fill="#FCF9F5" stroke="#EAE4DC" />
+  <rect x="772" y="212" width="188" height="16" rx="8" fill="#3A3938" fill-opacity="0.08" />
+  <rect x="772" y="252" width="188" height="52" rx="16" fill="#3A3938" fill-opacity="0.08" stroke="#3A3938" />
+  <rect x="772" y="324" width="188" height="52" rx="16" fill="#FFFFFF" stroke="#D9D2CA" />
+  <rect x="772" y="398" width="84" height="36" rx="14" fill="#FFFFFF" stroke="#D9D2CA" />
+  <rect x="874" y="398" width="84" height="36" rx="14" fill="#3A3938" />
+  <rect x="976" y="398" width="84" height="36" rx="14" fill="#FFFFFF" stroke="#D9D2CA" />
+  <rect x="740" y="454" width="272" height="36" rx="14" fill="#3A3938" />
+  <text x="120" y="162" fill="#635D59" font-family="Arial, sans-serif" font-size="16" letter-spacing="4">ELYSIUM BOOKINGS</text>
+  <text x="120" y="274" fill="#1C1C1A" font-family="Georgia, serif" font-size="82">Beauty,</text>
+  <text x="120" y="354" fill="#1C1C1A" font-family="Georgia, serif" font-size="82" font-style="italic">Booked Better</text>
+  <text x="120" y="430" fill="#635D59" font-family="Arial, sans-serif" font-size="28">The booking platform built for modern beauty businesses.</text>
+  <text x="120" y="472" fill="#635D59" font-family="Arial, sans-serif" font-size="28">Build your profile, set up your services, and let your clients book.</text>
+  <rect x="120" y="514" width="212" height="60" rx="18" fill="#3A3938" />
+  <text x="164" y="552" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="24">Join The Waitlist</text>
+</svg>
